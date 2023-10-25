@@ -5,6 +5,6 @@ lst += ['human'] * 10
 random.shuffle(lst)
 
 def get_doomies(l):
-    return {cat: [1 if i==cat else 0 for i in l] for cat in list(set(l))}
+    return {cat: [1 if i==cat else 0 for i in l] for cat in set(l)}
 
 print(get_doomies(lst))
