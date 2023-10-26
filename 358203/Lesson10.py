@@ -17,11 +17,12 @@ print(data.head())
 
 
 # 2
+def to_doomies(dataframe, src_column):
+    for dst_column in set(dataframe[src_column]):
+        dataframe[dst_column] = 0
+        dataframe.loc[dataframe[src_column]==dst_column, dst_column] = 1
+    dataframe.drop(columns=src_column, inplace=True)
+
 data = pd.DataFrame({'whoAmI':lst})
-def to_doomies(dataframe, column_name):
-    for i in set(dataframe[column_name]):
-        dataframe[i] = 0
-        dataframe.loc[dataframe[column_name]==i, i] = 1
-    dataframe.drop(columns=column_name, inplace=True)
 to_doomies(data, 'whoAmI')
 print(data.head())
