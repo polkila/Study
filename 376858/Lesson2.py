@@ -1,20 +1,22 @@
 from math import factorial, pow 
 
-def Poisson(l, m):
-    return pow(l, m)/factorial(m)*pow(2.72, -l)
-
 def combinations(n, k):
-    return factorial(n) / (factorial(k)*factorial(n-k))
+    return factorial(n) / (factorial(k) * factorial(n-k))
+
+def Bernoulli(n, k, p):
+    return combinations(n, k) * pow(p, k) * pow(1-p, n-k)
+
+def Poisson(l, m):
+    return pow(l, m) / factorial(m) * pow(2.72, -l)
 
 
 # 1. Вероятность того, что стрелок попадет в мишень, выстрелив один раз, равна 0.8. 
 # Стрелок выстрелил 100 раз. Найдите вероятность того, что стрелок попадет в цель ровно 85 раз.
 p = 0.8
 n = 100
-l = p*n
 m = 85
-Pm = Poisson(l, m)
-print('1', Pm) # 0.035264
+Pm = Bernoulli(n, m, p)
+print('1', Pm) # 0.04806
 
 
 # 2. Вероятность того, что лампочка перегорит в течение первого дня эксплуатации, равна 0.0004. 
@@ -40,10 +42,9 @@ print('2b', Pm) # 0.2703
 # 3. Монету подбросили 144 раза. Какова вероятность, что орел выпадет ровно 70 раз?
 p = 0.5
 n = 144
-l = p*n
 m = 70
-Pm = Poisson(l, m)
-print('3', Pm) # 0.04425
+Pm = Bernoulli(n, m, p)
+print('3', Pm) # 0.06281
 
 
 # 4. В первом ящике находится 10 мячей, из которых 7 - белые. 
@@ -73,3 +74,4 @@ for i in range(0,3):
         if i!=0 or j!=0:
             PA += PA1xPA2(i, j)
 print('4c', PA) # 0.99879
+print('4c', 1-PA1xPA2(0, 0)) # 0.99879
