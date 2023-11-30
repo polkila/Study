@@ -21,7 +21,9 @@ print ('Dx', Dx) # Dx 30000.0
 Dx = 0.2
 a = 0.5
 b = sqrt(Dx*12) + a
+Mx = (a + b)/2
 print('b', b) # b 2.049193338482967
+print('Mx', Mx) # Mx 1.2745966692414834
 
 
 
