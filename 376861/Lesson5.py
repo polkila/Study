@@ -78,4 +78,10 @@ print('Zn', Zn) # Zn -1.0037244076773089
 heights1 = np.array([172, 177, 158, 170, 178,175, 164, 160, 169, 165])
 heights2 = np.array([173, 175, 162, 174, 175, 168, 155, 170, 160, 163])
 print('result', stats.ttest_ind(heights1, heights2)) # statistic=0.4138411497680053, pvalue=0.68387966499013, df=18.0
+# H0 различий нет
+# H1 различия есть
+# alpha = 0.2
+# pvalue > alpha
+# H0 не отвергается на уровне значимости alpha = 0.2
+
 
