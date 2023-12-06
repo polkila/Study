@@ -28,8 +28,10 @@ Zn = (X-M)/(sigma/sqrt(n))
 print('Zn', Zn) # Zn 2.5
 # ПКО (t(1-alpha),∞)
 # t1 = 1.654
+
 # t1 = stats.norm.ppf(1-alpha)
 # print('t1', t1) # t1 1.6448536269514722
+
 # abs(Zn) > t1 
 # H0 отвергается
 # средний диаметр > 17 мм
@@ -44,29 +46,29 @@ print('Zn', Zn) # Zn 2.5
 # Верно ли утверждение продавца, если учитывать, что уровень значимости 1%? (Провести двусторонний тест.)
 
 M = 200
-# H0 M=200
 weights = [202, 203, 199, 197, 195, 201, 200, 204, 194, 190]
+alpha = 0.01
+# H0 M=200
+# H1 M!=200
 n = len(weights)
 X = sum(weights)/n
 print('X', X) # X 198.5
-alpha = 0.01
 Dx = sum([pow(x-M, 2) for x in weights])/(n-1)
 sigma = sqrt(Dx)
 print(sigma) # 4.725815626252608
-# sigma = np.array(weights).std(ddof=1)
+# sigma = np.std(np.array(weights), ddof=1)
 # print(sigma) # 4.453463071962462
-Zn = (X-M)/(sigma/sqrt(n))
-print('Zn', Zn) # Zn -1.0037244076773089
-# H1 M!=200
+tn = (X-M)/(sigma/sqrt(n))
+print('tn', tn) # tn -1.0037244076773089
 # ДКО (-∞, t(alpha/2)) U (t(1-alpha/2), ∞)   
 # (-∞, -2,57) U (2,57, ∞)
 
-# t1 = stats.t.ppf(alpha/2, df=n-1)
-# print('t1', t1) # t1 -3.24983554401537
-# t2 = stats.t.ppf(1-alpha/2, df=n-1)
-# print('t2', t2) # t2 3.2498355440153697
+# t1 = stats.t.ppf(alpha/2, 2*(n-1))
+# print('t1', t1) # t1 -2.8784404727135864
+# t2 = stats.t.ppf(1-alpha/2, 2*(n-1))
+# print('t2', t2) # t2 2.8784404727135864
 
-# t1 < abs(Zn), abs(Zn) < t2
+# t1 < abs(tn), abs(tn) < t2
 # H0 не отвергается
 # средний вес пачки печенья составляет 200 г
 
@@ -83,8 +85,8 @@ heights2 = np.array([173, 175, 162, 174, 175, 168, 155, 170, 160, 163])
 print('result', stats.ttest_ind(heights1, heights2)) # statistic=0.4138411497680053, pvalue=0.68387966499013, df=18.0
 # H0 различий нет
 # H1 различия есть
-# alpha = 0.2
+# alpha = 0.1
 # pvalue > alpha
-# H0 не отвергается на уровне значимости alpha = 0.2
+# H0 не отвергается на уровне значимости alpha = 0.1
 
 
