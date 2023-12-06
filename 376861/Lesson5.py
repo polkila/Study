@@ -32,7 +32,7 @@ print('Zn', Zn) # Zn 2.5
 # print('t1', t1) # t1 1.6448536269514722
 # abs(Zn) > t1 
 # H0 отвергается
-# средний диаметр > 17
+# средний диаметр > 17 мм
 
 
 
@@ -52,6 +52,9 @@ print('X', X) # X 198.5
 alpha = 0.01
 Dx = sum([pow(x-M, 2) for x in weights])/(n-1)
 sigma = sqrt(Dx)
+print(sigma) # 4.725815626252608
+# sigma = np.array(weights).std(ddof=1)
+# print(sigma) # 4.453463071962462
 Zn = (X-M)/(sigma/sqrt(n))
 print('Zn', Zn) # Zn -1.0037244076773089
 # H1 M!=200
