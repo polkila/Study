@@ -54,8 +54,11 @@ n = len(weights)
 X = sum(weights)/n
 print('X', X) # X 198.5
 Dx = sum([pow(x-M, 2) for x in weights])/(n-1)
+print('Dx', Dx) # Dx 22.333333333333332
+# Dx = np.array(weights).var(ddof=1)
+# print('Dx', Dx) # Dx 19.833333333333332
 sigma = sqrt(Dx)
-print(sigma) # 4.725815626252608
+print('sigma', sigma) # sigma 4.725815626252608
 # sigma = np.std(np.array(weights), ddof=1)
 # print(sigma) # 4.453463071962462
 tn = (X-M)/(sigma/sqrt(n))
@@ -63,10 +66,10 @@ print('tn', tn) # tn -1.0037244076773089
 # ДКО (-∞, t(alpha/2)) U (t(1-alpha/2), ∞)   
 # (-∞, -2,57) U (2,57, ∞)
 
-# t1 = stats.t.ppf(alpha/2, 2*(n-1))
-# print('t1', t1) # t1 -2.8784404727135864
-# t2 = stats.t.ppf(1-alpha/2, 2*(n-1))
-# print('t2', t2) # t2 2.8784404727135864
+t1 = stats.t.ppf(alpha/2, n-1)
+print('t1', t1) # t1 -3.24983554401537
+t2 = stats.t.ppf(1-alpha/2, n-1)
+print('t2', t2) # t2 3.24983554401537
 
 # t1 < abs(tn), abs(tn) < t2
 # H0 не отвергается
