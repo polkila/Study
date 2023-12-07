@@ -66,10 +66,10 @@ print('tn', tn) # tn -1.0037244076773089
 # ДКО (-∞, t(alpha/2)) U (t(1-alpha/2), ∞)   
 # (-∞, -2,57) U (2,57, ∞)
 
-t1 = stats.t.ppf(alpha/2, n-1)
-print('t1', t1) # t1 -3.24983554401537
-t2 = stats.t.ppf(1-alpha/2, n-1)
-print('t2', t2) # t2 3.24983554401537
+# t1 = stats.t.ppf(alpha/2, n-1)
+# print('t1', t1) # t1 -3.24983554401537
+# t2 = stats.t.ppf(1-alpha/2, n-1) 
+# print('t2', t2) # t2 3.24983554401537
 
 # t1 < abs(tn), abs(tn) < t2
 # H0 не отвергается
