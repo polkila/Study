@@ -63,8 +63,10 @@ print('sigma', sigma) # sigma 4.725815626252608
 # print(sigma) # 4.453463071962462
 tn = (X-M)/(sigma/sqrt(n))
 print('tn', tn) # tn -1.0037244076773089
+p = 1 - alpha/2 # 0.995
+# t = 3.25
 # ДКО (-∞, t(alpha/2)) U (t(1-alpha/2), ∞)   
-# (-∞, -2,57) U (2,57, ∞)
+# (-∞, -3.25) U (3.25, ∞)
 
 # t1 = stats.t.ppf(alpha/2, n-1)
 # print('t1', t1) # t1 -3.24983554401537
