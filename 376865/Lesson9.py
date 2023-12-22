@@ -109,7 +109,7 @@ B1_prev = 0
 
 while (abs(B1_prev-B1) > precise):
     B1_prev = B1
-    B1 -= alpha * (2/n) * get_a(x, y, B1)
+    B1 -= alpha * (2/n) * np.sum((B1*x - y) * x)
     a = get_a(x, y, B1_prev)
 
 
